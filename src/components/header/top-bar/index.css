@@ -1,0 +1,81 @@
+.top-bar {
+    background-color: #075999;
+    align-items: center;
+    height: 38.13px; /* Define the header's height */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .left-content {
+    display: flex; /* Use flexbox to align icon and text horizontally */
+    align-items: center; /* Vertically center-align the content */
+    justify-content: center; /* Horizontally center-align */
+    height: 100%; /* Ensure the section takes up the full height of the header */
+  }
+  
+  .left-content i {
+    padding-left: 40px;
+    font-size: 13px; /* Adjust the icon size */
+    color: #ffffff; /* Adjust the icon color */
+    margin-right: 10px; /* Add some spacing to the right of the icon */
+  }
+  
+  .left-content .text {
+    font-size: 13px; /* Adjust the text size */
+    color: #ffffff; /* Adjust the text color */
+  }
+  
+  .center-content {
+    flex-grow: 1; /* Allow it to take up available space */
+    text-align: center; /* Horizontally center-align text */
+    display: flex;
+    justify-content: center; /* Horizontally center-align */
+    align-items: center; /* Vertically center-align */
+    height: 100%; /* Ensure the section takes up the full height of the header */
+  }
+  
+  .center-content p {
+    padding-top: 15px;
+    font-size: 13px;
+    color: #fff;
+  }
+  
+  .right-content {
+    display: flex;
+    justify-content: center; /* Horizontally center-align */
+    align-items: center; /* Vertically center-align */
+    height: 100%; /* Ensure the section takes up the full height of the header */
+  }
+  
+  /* Style the button link */
+  .right-content p {
+    padding-top: 15px;
+    padding-right: 10px;
+    font-size: 13px;
+    color: #ffffff;
+  }
+  
+  /* Style the social links */
+  .social-links {
+    padding-right: 40px;
+    display: flex;
+    align-items: center; /* Vertically center-align */
+  }
+  
+  /* Style the individual social link */
+  .social-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center; /* Vertically center-align */
+    margin-right: 5px; /* Add spacing between links */
+  }
+  
+  /* Style the social link icons */
+  .social-link i {
+    font-size: 13px; /* Adjust the icon size */
+    color: #ffffff; /* Adjust the icon color */
+    margin-right: 5px; /* Add spacing to the right of the icon */
+  }
+  

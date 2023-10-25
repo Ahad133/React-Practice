@@ -1,0 +1,57 @@
+/* Add this CSS to your index.css file */
+.product-slider-container {
+    padding: 30px;
+    position: relative;
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+  
+  .slider-navigation {
+    position: absolute;
+    top: -30px; /* Adjust this value to control the vertical position */
+    right: 10px; /* Adjust this value to control the horizontal position */
+    z-index: 1; /* Ensure buttons appear on top of the slider */
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    color: grey;
+    padding-left: 6px;
+  }
+
+  .sale-price {
+    color: #075999;
+  }
+
+  .price {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .product-slider-container h2 {
+    text-align: left;
+  }
+
+  .product-details h3 {
+    font-size: 19px;
+    color: #002956;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .product-details p {
+    text-align: left;
+  }
+
+  .review-stars {
+    color: #e9a426;
+    text-align: left;
+  }
+
+  .review-stars .num-reviews {
+    color: black;
+    margin-left: 140px;
+  }

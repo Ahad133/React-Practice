@@ -1,0 +1,56 @@
+.top-contact {
+    background-color: #075999;
+    color: #fff;
+    height: 200px;
+    padding-top: 75px;
+}
+
+.contact-container {
+    padding-top: 1px;
+}
+
+form.contact {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    max-width: 600px; 
+    margin: 0 auto;
+}
+
+input.contact[type="text"],
+input.contact[type="email"],
+input.contact[type="tel"],
+textarea.contact {
+    width: 100%; 
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+}
+
+textarea.contact {
+    height: 100px;
+}
+
+input.contact[type="submit"] {
+    background-color: #075999;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.space {
+    padding-top: 25px;
+}
+
+.button-space {
+    text-align: left;
+}
+
+.form-map {
+    padding-top: 70px;
+}

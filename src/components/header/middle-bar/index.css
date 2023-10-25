@@ -1,0 +1,91 @@
+.middle-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 98px;
+    background-color: transparent;
+    padding: 10px;
+    color: #075999;
+  }
+  
+  .left-content1 {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* .logo {
+    padding-left: 40px;
+    max-width: 103px; 
+  } */
+
+  .left-content1 h1 {
+    padding-left: 40px;
+    font-size: 40px;
+  }
+
+  .center-content1 {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-field input[type="text"] {
+     /* Remove the border */
+  border: none;
+  /* Set the background color to transparent (or any color you prefer) */
+  background-color: transparent;
+  /* Set the text color */
+  color: rgb(0, 0, 0);
+  /* Make the text input take up the full width of the search field */
+  flex: 1; /* Allow the input to expand and take remaining space */
+  /* Add padding to adjust the text input position within the search field */
+  padding: 0;
+  /* Remove any default styles like outline */
+  outline: none;
+  font-size: 13px;
+  }
+  
+  .search-field {
+    /* Add rounded corners */
+  border-radius: 20px;
+  /* Remove the border */
+  border: none;
+  /* Set the background color to grey */
+  background-color: #dee2e6; /* You can adjust the grey color as needed */
+  /* Add padding to accommodate the search icon and text */
+  padding: 5px 10px; /* Adjust as needed */
+  /* Make the container a flexbox to align items horizontally */
+  display: flex;
+  align-items: center;
+  width: 500px;
+  }
+
+  .search-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-right: 5px; /* Adjust as needed */
+  }
+
+  .search-button i {
+    /* Style the search icon as needed */
+    font-size: 20px; /* Adjust the size of the icon */
+    color: #075999; /* Set the color of the icon */
+  }
+
+.right-content1 {
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+  }
+
+.button1 {
+    padding-left: 20px;
+    color: #075999;
+    border-radius: 20px;
+    border: 0px;
+    background-color: transparent;
+    font-size: 18px;
+}

@@ -1,0 +1,179 @@
+/* CSS for the container */
+.div-with-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 30px;
+}
+
+/* CSS for the outer sections (divs) */
+.section {
+  width: 48%; /* Each section takes up 48% of the container width */
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 10px; /* Add spacing between sections */
+  display: none;
+}
+
+.section.show {
+  display: block;
+}
+
+/* CSS for the inner sections */
+.inner-section1,
+.inner-section2 {
+  background-color: #e9f6fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2%; /* Add spacing between sections */
+}
+
+.section3 {
+  height: 98%;
+  background-color: #e9f6fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2%; /* Add spacing between sections */
+}
+
+.text-column2 {
+  width: 50%; /* Text column takes up 50% of the inner section width */
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.text-column2 h3 {
+  color: #075999;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.text-column2 h1 {
+  color: black;
+  font-size: 50px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.text-column2 button {
+  margin-left: 40px;
+  margin-top: 20px;
+  background-color: transparent;
+  border: none;
+  color: #075999;
+  font-size: 20px;
+}
+
+.text-column3 {
+  width: 50%; /* Text column takes up 50% of the inner section width */
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-bottom: 40px;
+  padding-right: 20px;
+}
+
+.text-column3 h3 {
+  color: #075999;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.text-column3 h1 {
+  color: black;
+  font-size: 50px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.text-column3 button {
+  margin-left: 40px;
+  margin-top: 20px;
+  background-color: transparent;
+  border: none;
+  color: #075999;
+  font-size: 20px;
+}
+
+.text-column1 {
+  margin-top: 250px;
+  margin-right: 40px;
+  width: 50%; /* Text column takes up 50% of the inner section width */
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.text-column1 h3 {
+  color: #075999;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-left: 40px;
+}
+
+.text-column1 h1 {
+  color: black;
+  font-size: 50px;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
+.text-column1 button {
+  margin-left: 40px;
+  margin-top: 20px;
+  background-color: transparent;
+  border: none;
+  color: #075999;
+  font-size: 20px;
+}
+
+/* CSS for the image column on the right */
+.image-column {
+  width: 50%; /* Image column takes up 50% of the inner section width */
+  text-align: right; /* Align the content in the right column to the right */
+}
+
+.image-column1 {
+  margin-top: 200px;
+  width: 50%; /* Image column takes up 50% of the inner section width */
+  text-align: right; /* Align the content in the right column to the right */
+}
+
+.image-column img {
+  max-width: 200px; /* Adjust the max-width as needed */
+  align-self: flex-end; /* Align the image to the bottom (right) */
+  margin-right: 60px;
+  margin-top: 70px;
+}
+
+.image-column1 img {
+  max-width: 250px; /* Adjust the max-width as needed */
+  align-self: flex-end; /* Align the image to the bottom (right) */
+  margin-left: 40px;
+}
+/* CSS for the text and image positions in section3 */
+.section3 .text-column1 {
+  order: 2; /* Move the text column to the right */
+  text-align: right;
+}
+
+.section3 .image-column1 {
+  order: 1; /* Move the image column to the left */
+  text-align: left;
+}
+
+.special-offer {
+  position: absolute;
+  margin-left: 603px;
+  background-color: #075999; /* Background color for the special offer */
+  color: #fff; /* Text color for the special offer */
+  padding: 5px 10px;
+  font-size: 20px;
+  height: 70px;
+}

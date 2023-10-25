@@ -1,0 +1,58 @@
+.bottom-bar {
+    border-top: 0.1px solid grey; /* Top border */
+    /* border-bottom: 0.1px solid grey; Bottom border */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 40px;
+  }
+  
+  /* Style the left-buttons container */
+  .left-buttons {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  /* Style the regular buttons */
+  .button {
+    background-color: transparent; /* Set the background color for the buttons */
+    color: #075999;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px; /* Add padding to the buttons */
+    margin-right: 5px; /* Add margin to separate the buttons from each other */
+    text-decoration: none;
+  }
+  
+  /* Style the right button */
+  .right-button {
+    background-color: #075999; /* Set the background color for the right button */
+    color: white;
+    border-radius: 40px;
+    height: 35px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+
+  .dropdown button {
+    padding-top: 11.5px;
+    padding-bottom: 11.5px;
+    background-color: #075999;
+    border-color: #075999;
+    width: 300px;
+    border-radius: 0px;
+    cursor: not-allowed; /* Change the cursor style to indicate it's disabled */
+    margin-left: 50px;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dropdown button:hover {
+    border-color: #075999;
+    background-color: #075999; /* Change the dropdown item's hover background color */
+    color: white; /* Change the dropdown item's hover text color */
+  }
