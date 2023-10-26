@@ -1,19 +1,48 @@
-import React from "react";
+import React from 'react';
+import { useGeolocated } from 'react-geolocated';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
-function Map() {
+
+function LocationMap() {
+  const { isGeolocationAvailable, isGeolocationEnabled, coords } = useGeolocated();
+
+  if (!isGeolocationAvailable) {
+    return <div>Geolocation is not available on your device.</div>;
+  }
+
+  if (!isGeolocationEnabled) {
+    return <div>Geolocation is not enabled on your device.</div>;
+  }
+
+  if (!coords) {
+    return <div>Loading location data...</div>;
+  }
+
+  const { latitude, longitude } = coords;
+  const customIcon = new L.Icon({
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+
   return (
-
-      <iframe
-        title="Google Map"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.6948528104803!2d-86.1195793851943!3d39.75265007944539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb6e6f26f8774cd1b!2sIndianapolis%20Motor%20Speedway!5e0!3m2!1sen!2sus!4v1641946812345!5m2!1sen!2sus"
-        width="600"
-        height="450"
-        frameBorder="0"
-        style={{ border: 0 }}
-        allowFullScreen=""
-      ></iframe>
-
+    <div>
+      <div style={{ width: '650px', height: '450px' }}>
+      <MapContainer center={[latitude, longitude]} zoom={14} style={{ height: '100%', width: '100%' }}>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={[latitude, longitude]} icon={customIcon}>
+          <Popup>Your location</Popup>
+        </Marker>
+      </MapContainer>
+    </div>
+    </div>
   );
 }
 
-export default Map;
+export default LocationMap;

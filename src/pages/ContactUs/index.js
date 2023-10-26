@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './index.css';
-import Map from "../../components/map";
+import LocationMap from "../../components/map";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -17,7 +17,6 @@ export default function ContactUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     console.log("Form data submitted:", formData);
   };
 
@@ -85,7 +84,7 @@ export default function ContactUs() {
         </div>
         <div className="col-lg-6">
           <div className="form-map">
-            <Map />
+            <LocationMap />
           </div>
         </div>
       </div>
