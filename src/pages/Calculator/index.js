@@ -3,6 +3,7 @@ import './index.css';
 
 function Calculator() {
   const [input, setInput] = useState('');
+  const [result, setResult] = useState('');
 
   const addToInput = (value) => {
     setInput(input + value);
@@ -10,14 +11,84 @@ function Calculator() {
 
   const clearInput = () => {
     setInput('');
+    setResult('');
   };
 
   const calculateResult = () => {
-    try {
-      setInput(eval(input).toString());
-    } catch (error) {
-      setInput('Error');
+    let inputCopy = input;
+    let currentNumber = '';
+    let currentOperator = '+';
+    let total = 0;
+    let index = 0;
+
+    while (index < inputCopy.length) {
+      const char = inputCopy[index];
+
+      if (/[0-9.]/.test(char)) {
+        currentNumber += char;
+      } else if (/[+\-*/]/.test(char)) {
+        if (currentNumber) {
+          const number = parseFloat(currentNumber);
+
+          switch (currentOperator) {
+            case '+':
+              total += number;
+              break;
+            case '-':
+              total -= number;
+              break;
+            case '*':
+              total *= number;
+              break;
+            case '/':
+              if (number !== 0) {
+                total /= number;
+              } else {
+                setResult('Error: Division by zero');
+                return;
+              }
+              break;
+            default:
+              break;
+          }
+        }
+        currentNumber = '';
+        currentOperator = char;
+      } else {
+        setResult('Error: Invalid character');
+        return;
+      }
+
+      index++;
     }
+
+    if (currentNumber) {
+      const number = parseFloat(currentNumber);
+      switch (currentOperator) {
+        case '+':
+          total += number;
+          break;
+        case '-':
+          total -= number;
+          break;
+        case '*':
+          total *= number;
+          break;
+        case '/':
+          if (number !== 0) {
+            total /= number;
+          } else {
+            setResult('Error: Division by zero');
+            return;
+          }
+          break;
+        default:
+          break;
+      }
+    }
+
+    setInput(total.toString());
+    setResult(total.toString());
   };
 
   return (
