@@ -10,6 +10,7 @@ import Testimonials from "./pages/Testimonials";
 import Products from "./pages/Products";
 import GetData from "./pages/GetData";
 import Calculator from "./pages/Calculator";
+import StepForm from "./pages/StepForm";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/getdata" element={<GetData />} />
           <Route path="/calculator" element={<Calculator />} />
+          <Route path="/stepform" element={<StepForm />} />
         </Routes>
       </Router>
       <Footer />
