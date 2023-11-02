@@ -5,6 +5,10 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 
@@ -16,6 +20,18 @@ input {
   border-radius: 5px;
 }
 
+/* Add this CSS to remove bullet points from the list */
+.submitted-data ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.submitted-data {
+  padding-top: 10px;
+}
+
+
+/*
 button {
   background-color: #0074d9;
   color: #fff;
@@ -36,4 +52,4 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #218838;
-}
+} */

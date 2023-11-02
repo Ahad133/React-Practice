@@ -15,6 +15,7 @@ class StepForm extends Component {
         address: '',
       },
       validationErrors: {},
+      submittedData: null,
     };
   }
 
@@ -45,10 +46,37 @@ class StepForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.validateStep()) {
-      console.log('Submitted Data:', this.state.formData);
+      const dataAsArray = [this.state.formData];
+      this.setState({ submittedData: dataAsArray });
     }
   };
+  
 
+  renderSubmittedData() {
+    if (this.state.submittedData) {
+      return (
+        <div className="submitted-data">
+          <h2>Submitted Data:</h2>
+          <ul>
+            {this.state.submittedData.map((data, index) => (
+              <li key={index}>
+                <h3>Step {index + 1}</h3>
+                <ul>
+                  {Object.entries(data).map(([key, value]) => (
+                    <li key={key}>
+                      <strong>{key}:</strong> {value}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+    return null;
+  }
+  
   validateStep = () => {
     const { formData } = this.state;
     const validationErrors = {};
@@ -77,7 +105,7 @@ class StepForm extends Component {
   };
 
   render() {
-    const { step, formData, validationErrors } = this.state;
+    const { step, formData, validationErrors, submittedData } = this.state;
 
     return (
       <div className="admission-form">
@@ -150,6 +178,24 @@ class StepForm extends Component {
             </div>
           )}
         </form>
+        {submittedData && (
+        <div className="submitted-data">
+          <h2>Submitted Data:</h2>
+          <ul>
+            {submittedData.map((data, index) => (
+              <li key={index}>
+                <ul>
+                  {Object.entries(data).map(([key, value]) => (
+                    <li key={key}>
+                      <strong>{key}:</strong> {value}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       </div>
     );
   }
