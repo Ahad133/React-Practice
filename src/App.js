@@ -11,6 +11,7 @@ import Products from "./pages/Products";
 import GetData from "./pages/GetData";
 import Calculator from "./pages/Calculator";
 import StepForm from "./pages/StepForm";
+import Sheets from "./pages/Sheets";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/getdata" element={<GetData />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/stepform" element={<StepForm />} />
+          <Route path="/sheets" element={<Sheets />} />
         </Routes>
       </Router>
       <Footer />

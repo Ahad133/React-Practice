@@ -1,0 +1,23 @@
+.sheets-table {
+    width: calc(100% - 40px); /* Subtract 40px padding to make room for padding */
+    border-collapse: separate; /* Separate border model to add space between columns */
+    padding: 20px; /* Add 20px padding to the entire table */
+  }
+  
+  .sheets-table th, .sheets-table td {
+    padding: 8px; /* Adjust cell padding as needed */
+  }
+  
+  .even-row {
+    background-color: #e2e2e2;
+  }
+  
+  .odd-row {
+    background-color: #fff;
+  }
+  
+  /* Set equal column width for each column */
+  .sheets-table th, .sheets-table td {
+    width: calc(100% / 4); /* Assuming 4 columns; adjust as needed */
+  }
+  
