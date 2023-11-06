@@ -1,51 +1,56 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import './index.css';
-import { saveAs } from 'file-saver';
 
 export default function Sheets() {
   const [data, setData] = useState([]);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    number: "",
+  });
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const spreadsheetId = '1NA4Y6jw0m-_8hCLvUQYxNPSdtkljACH-Efo4UCU0bAU';
-    const apiKey = 'AIzaSyDlov1BoDguLwfyY4e7j2u7x1zOO7bD2ZA'; 
-    const sheetName = 'Sheet1'; 
+    const sheetdbEndpoint = 'https://sheetdb.io/api/v1/v9oysgjtwej7k';
 
-    const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`;
-
-    axios.get(apiUrl)
+    axios.get(sheetdbEndpoint)
       .then(response => {
-        const values = response.data.values;
-        const headers = values[0];
-        const jsonData = [];
-
-        for (let i = 1; i < values.length; i++) {
-          const row = {};
-          for (let j = 0; j < headers.length; j++) {
-            row[headers[j]] = values[i][j];
-          }
-          jsonData.push(row);
-        }
-
-        setData(jsonData);
+        setData(response.data);
       })
       .catch(error => {
-        console.error("Error reading data from Google Sheets", error);
+        console.error("Error reading data from SheetDB", error);
+        setError("Error loading data. Please check the SheetDB configuration.");
       });
   }, []);
 
-  const downloadJsonFile = () => {
-    const jsonData = JSON.stringify(data, null, 2);
-    const blob = new Blob([jsonData], { type: 'application/json' });
-    saveAs(blob, 'data.json');
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('https://sheetdb.io/api/v1/v9oysgjtwej7k', formData)
+      .then(response => {
+        axios.get('https://sheetdb.io/api/v1/v9oysgjtwej7k')
+          .then(response => {
+            setData(response.data);
+          });
+      })
+      .catch(error => {
+        console.error("Error submitting data to SheetDB", error);
+        setError("Error submitting data. Please check the form values and SheetDB configuration.");
+      });
   };
 
   return (
     <div>
       <h1>Data from Google Sheets</h1>
-      {data.length > 0 ? (
+      {error ? (
+        <p>{error}</p>
+      ) : data.length > 0 ? (
         <div>
-          <button onClick={downloadJsonFile}>Download JSON</button>
           <table className="sheets-table">
             <thead>
               <tr>
@@ -65,10 +70,19 @@ export default function Sheets() {
         <p>Loading data...</p>
       )}
 
-      <h2>JSON Data</h2>
-      <pre>
-        {JSON.stringify(data, null, 2)}
-      </pre>
+      <h2>Submit Data</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Name:
+          <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
+        </label>
+        <label>Email:
+          <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
+        </label>
+        <label>Number:
+          <input type="text" name="number" value={formData.number} onChange={handleInputChange} required />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }
